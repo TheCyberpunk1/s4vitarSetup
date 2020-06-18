@@ -19,19 +19,12 @@ Instalar dependencias que encuentras aqui. [https://github.com/baskerville/bspwm
 
 **Ahora como usuario normal.**
 "git clone https://github.com/baskerville/bspwm.git
-
 git clone https://github.com/baskerville/sxhkd.git
-
 cd bspwm && make && sudo make install
-
 cd ../sxhkd && make && sudo make install
-
 mkdir -p ~/.config/{bspwm,sxhkd}
-
 cp /usr/local/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/
-
 cp /usr/local/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/
-
 chmod u+x ~/.config/bspwm/bspwmrc"
 
 **Editamos el xinitrc para que arranque el escritorio de bspmw.**
