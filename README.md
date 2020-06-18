@@ -10,6 +10,8 @@ apt update
 
 **Ejecutar los siguientes comandos en usuario root
 **
-1. Instalar Bpswm
+1. Instalar Bpswm.
+
 ` apt-get install bspwm -y `
 1. Instalar dependencias que encuentras aqui. [https://github.com/baskerville/bspwm/wiki](https://github.com/baskerville/bspwm/wiki "https://github.com/baskerville/bspwm/wiki")
+1. 
