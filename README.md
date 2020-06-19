@@ -41,7 +41,11 @@ Si buscas seguir el vídeo de @s4vitar [https://www.youtube.com/watch?v=MF4qRSed
 
  **Pegamos el siguiente código** 
  
-  `sxhkd & exec bspwm`
+ 
+
+    sxhkd & 
+    exec bspwm
+      
 
 guardamos **ctrl + o** [enter] y luego **ctrl + x**.
 
