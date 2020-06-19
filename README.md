@@ -1,18 +1,26 @@
 # s4vitarSetup
 Instalando el entorno de @S4vitar paso a paso.
 
-# s4vitar configuracion
+# s4vitar configuración
+No busco guiar a nadie ni hacer una explicación, es solo por si tengo que aplicar la misma configuración en otra maquina.
+ Pero si a alguien le sirve lo dejo publico.
+ Me ha funcionado en **Parrot 4.9** y **Kali Linux 2020.2**.
 
-Actualizar parrot .
+Si buscas instalar automáticamente mira este script de @kyb3r-bat [https://github.com/kyb3r-bat/Kyb3rvotarOS](https://github.com/kyb3r-bat/Kyb3rvotarOS)
 
-apt update
+Si buscas seguir el vídeo de @s4vitar [https://www.youtube.com/watch?v=MF4qRSedmEs](https://www.youtube.com/watch?v=MF4qRSedmEs)
+ 
+
+**Actualizar Parrot .**
+
+    apt update
 
 **Ejecutar los siguientes comandos en usuario root**
  
-Instalar Bpswm.
+**Instalar Bpswm.**
 
 `apt-get install bspwm -y` 
- Instalar dependencias que encuentras aqui.  [https://github.com/baskerville/bspwm/wiki](https://github.com/baskerville/bspwm/wiki "https://github.com/baskerville/bspwm/wiki")
+ Instalar dependencias que encuentras aquí.  [https://github.com/baskerville/bspwm/wiki](https://github.com/baskerville/bspwm/wiki "https://github.com/baskerville/bspwm/wiki")
 
     sudo apt-get install libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev
 
@@ -30,7 +38,8 @@ Instalar Bpswm.
 **Editamos el xinitrc para que arranque el escritorio de bspmw.**
 
 `nano ~/.xinitrc`
- **Pegamos el siguiente codigo** 
+
+ **Pegamos el siguiente código** 
  
   `sxhkd & exec bspwm`
 
@@ -43,17 +52,17 @@ guardamos **ctrl + o** [enter] y luego **ctrl + x**.
     sudo apt-get install rofi -y
 
 
-Los archivos de configuracion que se usaran en esta guia los puedes encontrar en  [https://s4vitar.github.io/bspwm-configuration-files/#](https://s4vitar.github.io/bspwm-configuration-files/#).
+Los archivos de configuración que se usaran en esta guía los puedes encontrar en  [https://s4vitar.github.io/bspwm-configuration-files/#](https://s4vitar.github.io/bspwm-configuration-files/#).
 
 
 **Nota.**
-Modificas los nombres de usuario tambien creas una carpeta en el escritorio o le das la ruta a la **linea feh** para especificar donde se encuentra tu fondo de pantalla o si quieres solo aniades las lineas faltantes. 
-tambien tener en cuenta que en la linea **pointer_modifier mod1** puede variar por mod2 mod3 mod4 depende la configuracion de tu escritorio.
+Modificas los nombres de usuario también creas una carpeta en el escritorio o le das la ruta a la **linea feh** para especificar donde se encuentra tu fondo de pantalla o si quieres solo agregas las lineas. 
+También tener en cuenta que en la linea **pointer_modifier mod1** puede variar por mod2 mod3 mod4 depende la configuración de tu escritorio.
 
     cd ~/.config/bspwm
     nano bspwmrc
 
-**Borras el codigo y pegar este en el archivo bspwmrc**
+**Borras el código y pegar este en el archivo bspwmrc**
 
     #! /bin/sh  
           
@@ -86,7 +95,7 @@ tambien tener en cuenta que en la linea **pointer_modifier mod1** puede variar p
 
 guardamos **ctrl + o** [enter] y luego **ctrl + x**.
 
-**Copiar el archivo de configuracion sxhkdrc de s4vitar**
+**Copiar el archivo de configuración sxhkdrc de s4vitar**
 
     cd ~/.config/sxhkd
     nano sxhkdrc
@@ -248,10 +257,10 @@ guardamos **ctrl + o** [enter] y luego **ctrl + x**.
     touch bspwm_resize
     chmod +x bspwm_resize
 
-**pegamos la configuracion de s4vitar en el archivo bspwm_resize**
+**pegamos la configuración de s4vitar en el archivo bspwm_resize**
 
     nano bspwm_resize
-pegar
+**pegar**
 
     #!/usr/bin/env dash
     
@@ -272,17 +281,17 @@ pegar
 
 guardamos **ctrl + o** [enter] y luego **ctrl + x**.
 
-**Reiniciar sesion**
+**Reiniciar sesión**
 
     kill -9 -1
    
-  iniciamos sesion con **bspwm**, lo escojemos en la parte superior del login.
+  iniciamos sesión con **bspwm**, lo elegimos en la parte superior del login.
 
  
-Una vez se inicie sesion, no se vera nada, para ella damos **windows + enter** de esta manera se abrira una terminal.
+Una vez se inicie sesión, no se vera nada, para ella damos **windows + enter** de esta manera se abrirá una terminal.
 
 
-**Crear el archivo de configuracion para transparencia con compton**
+**Crear el archivo de configuración para transparencia con compton**
 
     cd /home/usuario/.config
     mkdir compton
@@ -324,3 +333,498 @@ guardamos **ctrl + o** [enter] y luego **ctrl + x**.
     apt install build-essential git cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev
 
 Si te falla, hacer `apt-get update`
+
+Descargar en releases la version 3.4.0, ya que da errores.
+
+[https://github.com/polybar/polybar/releases](https://github.com/polybar/polybar/releases)
+
+**Instalar dependencias**
+
+    apt install libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev
+    
+**Configuramos.**
+
+cd /opt
+git clone https://github.com/polybar/polybar/
+
+**Ejecutar como usuario root.**
+
+    cd /opt/
+    mv /home/usuario/Downloads/polybar-3.4.0.tar .
+    tar -xf polybar-3.4.0.tar
+    rm polybar-3.4.0.tar
+    cd polybar
+    mkdir build
+    cd build
+    cmake ..
+    make -j$(nproc)
+    make install
+
+**Descargar la tipografia.**
+Descargar Hack nerd fonts. [nerdfonts.com](nerdfonts.com)
+https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+
+    sudo su
+    cd /usr/local/share/fonts
+    mv /home/usuario/Downloads/Hack.zip
+    unzip Hack.zip
+    rm Hack.zip
+    
+**Configurar polybar como usuario normal no root**
+
+    cd ~/.config/
+    mkdir polybar
+    cd polybar
+**Creamos un script**
+
+    touch launch.sh
+    chmod +x launch.sh
+    nano launch.sh
+**Pegamos el siguiente código que se encuentra en la pagina de s4vitar**
+
+    #!/bin/bash
+    
+    # Terminate already running bar instances
+    killall -q polybar
+    
+    # Wait until the processes have been shut down
+    while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+    
+    # Launch bar1 and bar2
+    polybar example &
+    
+    echo "Polybar launched..."
+
+
+Guardamos **ctrl + o** [enter] y luego **ctrl + x**.
+
+**Hacemos un updatedb como root**
+
+    updatedb
+hacemos una consulta.
+
+    locate config | grep polybar
+    cp /opt/polybar/config
+    chown usuario:usuario -R *
+
+**Windows alt + r** reiniciar el escritorio o **windows alt + q**.
+
+**Ahora para modificar el estilo de como se ve la polybar pueden ir al vídeo de s4vitar en el minuto 1:08:25**
+[https://www.youtube.com/watch?v=MF4qRSedmEs](https://www.youtube.com/watch?v=MF4qRSedmEs)
+
+**O seguir estas lineas**
+
+    cd ~/.config/polybar
+    nano config
+
+Modificas lo siguiente.
+
+Los iconos lo consigues en [https://www.nerdfonts.com/cheat-sheet](https://www.nerdfonts.com/cheat-sheet) 
+
+**escribes circle.**
+
+label-focused = %index% lo cambias por label-focused = aqui el icono
+
+label-occupied = %index% lo cambias por label-occupied = aqui el icono
+
+label-urgent = %index$! Lo cambias por label-urgent = aqui el icono
+
+label-empty = %index! Lo cambias por label-empty = aqui el icono
+
+La linea label focused underline la puedes comentar para quitar el efecto amarillo de la barra
+
+También puedes quitar las underline de los módulos comentándolo con un #
+  
+
+**Para que acepte los iconos debes agregar la fuente**
+
+Buscas dentro del mismos archivo donde dice font 1 font 2 y agregas esta justo debajo
+
+font-3 = Hack Nerd Font Mono
+  
+
+**Para configurar la barra superior**
+
+En la linea modules center puedes cambiarla
+
+modules-center = xwindow
+
+modules-right = quitar los que no consideres necesarios.
+
+**Configurar nuestros propios módulos, en este caso siguiendo el ejemplo de @s4vitar**
+Como usuario normal no root.
+
+    cd ~/.config
+    mkdir bin
+    cd bin
+    touch ethernet_status.sh
+    chmod +x ethernet_status.sh
+    nano ethernet_status.sh
+
+**En esta parte del código seguir en el video 1 h: 17min**
+**Pegar el siguiente código que s4vitar publico**
+  
+
+    # Configuración ethernet para el Polybar
+    #!/bin/sh
+    echo "%{F#2495e7} %{F#e2ee6a}$(/usr/sbin/ifconfig eth0 | grep "inet " | awk '{print $2}')%{u-}"
+
+Guardamos **ctrl + o** [enter] y luego **ctrl + x**.
+
+Para ejecutar editar el archivo de configuración de polybar
+
+    nano ~/.config/polybar/config
+**Ejemplo:** Agregar un modulo nuevo al final - pegar lo siguiente = 
+
+    [module/ethernet]    
+    Type = custom/script
+    Exec = ~/.config/bin/ethernet_status.sh
+ 
+en la parte de la barra donde muestras los módulos agregar el nombre
+
+**Ejemplo:** `modules-right = agregar ethernet` junto a los que tengas
+
+Para agregar el icono de vpn hacer el mismo procedimiento dentro de **config/bin**
+
+    cd ~/.config/bin
+    touch vpnstatus.sh
+    chmod +x vpnstatus.sh
+    nano vpnstatus.sh
+Pegar.
+
+    IFACE=$(/usr/sbin/ifconfig | grep tun0 | awk '{print $1}' | tr -d ':')
+    if [ "$IFACE" = "tun0" ]; then
+    	echo "%{F#1bbf3e}icono %{F#e2ee6a}$(/usr/sbin/ifconfig tun0 | grep "inet " | awk '{print $2}' )%{u-}"
+    else
+    	echo "%{F#1bbf3e}icono%{u-}%{F-}"
+    Fi
+
+
+Guardamos **ctrl + o** [enter] y luego **ctrl + x**.
+
+**Guardar y para ejecutar editar el archivo de configuración de polybar**.
+
+    nano ~/.config/polybar/config
+
+**Ejemplo:** Agregar un modulo nuevo al final.
+
+    [module/vpn]
+    type = custom/script
+    exec = ~/.config/bin/ethernet_status.sh
+ 
+
+En la parte de la barra donde muestras los módulos agregar el nombre
+
+**Ejemplo:** `modules-right = agregar vpn` junto a los que tengas.
+
+  
+Puedes probarlo corriendo la vpn de hackthebox.
+ 
+
+**Para volver transparente la polybar modificar al principio del archivo.
+Como usuario normal no root.**
+
+    nano ~/.config/polybar/config
+
+  
+En el archivo cambiar el color del background por `#aa2F343F`.
+
+**Instalar crackmapexec** [https://github.com/byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec)
+
+    cd /opt/
+    sudo git clonet https://github.com/byt3bl33d3r/CrackMapExec
+
+
+**Instalar zsh**
+
+    sudo su
+    apt-get install zsh -y
+
+**instalar power level 10** [https://github.com/romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
+**Como usuario normal no root**
+ 
+
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+
+    echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+
+
+**Ejecutar zsh**
+
+Configurar a tu gusto o ver el vídeo de s4vitar si lo quieres exactamente igual hora **1:30:58**.
+
+Si quieres configurar la zsh el archivo, a tu-gusto.
+
+    nano ~/.p10k.zsh
+
+
+**aplicar zsh a usuario root**
+
+    sudo su
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+    echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+
+  
+Configurar igual a tu gusto y cambiar el mensaje en el contexto 
+por un icono.
+
+    nano ~/.p10k.zsh
+
+  
+**Cambiar consola por defecto.**
+  
+
+    which zsh
+    sudo usermod --shell /usr/bin/zsh usuario
+
+**Para root**  
+
+    usermod --shell /usr/bin/zsh root
+
+  Reinicias **windows alt + q**
+
+**Unir las dos configuraciones para no estar configurando.**
+
+    sudo su
+    cd ~/
+    rm .zshrc
+    ln -s -f /home/usuario/.zshrc .zshrc
+
+**Instalar scrub**
+
+    sudo apt-get install scrub -y
+
+**Meterle lsd como dice el s4vitar**
+
+Descargar [https://github.com/Peltoche/lsd/releases](https://github.com/Peltoche/lsd/releases)
+
+El 0.14 [https://github.com/Peltoche/lsd/releases/download/0.14.0/lsd_0.14.0_amd64.deb](https://github.com/Peltoche/lsd/releases/download/0.14.0/lsd_0.14.0_amd64.deb)
+
+  
+
+    sudo su
+    cd /home/usuario/Downloads
+    dpkg -i lsd_0.14.0_amd64.deb
+
+  
+**instalar bat 0.12.1** [https://github.com/sharkdp/bat/releases](https://github.com/sharkdp/bat/releases)
+
+[https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb](https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb)
+
+  
+
+    sudo su
+    cd /opt/
+    mv /home/usuario/Downloads/bat_0.12.1_amd64.deb
+    dpkg -i bat_0.12.1_amd64.deb
+    
+ **Instalar bat extras** [https://github.com/eth-p/bat-extras](https://github.com/eth-p/bat-extras)
+
+
+    sudo su
+    cd /opt/
+    git clone https://github.com/eth-p/bat-extras
+    cd bat-extras
+    ./build.sh
+
+  
+
+**Punto opcional si les funciona**
+
+**instalar rg proceso de s4vitar**
+
+    snap install rg
+
+  Si no te sirve a la primera
+
+    sudo su
+    cd /opt
+    git clone https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+    sudo dpkg -i ripgrep_11.0.2_amd64.deb
+
+  
+
+**Instalar fzf** https://github.com/junegunn/fzf
+
+**Hacer ambos procedimientos en ambos usuarios.**
+
+    cd ~
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+    
+**Instalar ranger**
+
+    sudo su
+    apt-get install ranger -y
+
+**Instalar plugins**
+
+    apt-get install zsh-autosuggestions -y
+    apt-ge install zsh-syntaxhighlighting
+
+  **Damos los mismos permisos de usuario.**
+
+    sudo su
+    cd /usr/share/
+    chown usuario:usuario -R zsh-autosuggestions
+
+**Instalar plugins manuales** https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/
+
+**Ejemplo**
+
+**Copiar link** [https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh](https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh)
+
+  
+
+    sudo su
+    cd /usr/share
+    mkdir zsh-sudo
+    cd !$
+    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
+    chown thecyberpunk:thecyberpunk zsh-sudo -R
+ 
+
+Instalar el bloqueo de sesión.
+
+    sudo apt-get install i3lock-fancy imagemagick -y
+
+**Por ultimo pegar toda la configuración como usuario normal.**
+
+    nano ~/.zshrc
+Pegar este código o el que comparte s4vitar que es el mismo, revisar primero las rutas que tenga nombre tus usuarios.
+
+    # Fix the Java Problem
+    export _JAVA_AWT_WM_NONREPARENTING=1
+    
+    # Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+      source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    fi
+    
+    # Set up the prompt
+    
+    autoload -Uz promptinit
+    promptinit
+    prompt adam1
+    
+    setopt histignorealldups sharehistory
+    
+    # Use emacs keybindings even if our EDITOR is set to vi
+    bindkey -e
+    
+    # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+    HISTSIZE=1000
+    SAVEHIST=1000
+    HISTFILE=~/.zsh_history
+    
+    # Use modern completion system
+    autoload -Uz compinit
+    compinit
+    
+    zstyle ':completion:*' auto-description 'specify: %d'
+    zstyle ':completion:*' completer _expand _complete _correct _approximate
+    zstyle ':completion:*' format 'Completing %d'
+    zstyle ':completion:*' group-name ''
+    zstyle ':completion:*' menu select=2
+    eval "$(dircolors -b)"
+    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+    zstyle ':completion:*' list-colors ''
+    zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+    zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+    zstyle ':completion:*' menu select=long
+    zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+    zstyle ':completion:*' use-compctl false
+    zstyle ':completion:*' verbose true
+    
+    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+    zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+    source /home/s4vitar/powerlevel10k/powerlevel10k.zsh-theme
+    
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+    
+    # Manual configuration
+    
+    PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+    
+    # Manual aliases
+    alias ll='lsd -lh --group-dirs=first'
+    alias la='lsd -a --group-dirs=first'
+    alias l='lsd --group-dirs=first'
+    alias lla='lsd -lha --group-dirs=first'
+    alias ls='lsd --group-dirs=first'
+    alias cat='bat'
+    
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    
+    # Plugins
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh-sudo/sudo.plugin.zsh
+    
+    # Functions
+    function mkt(){
+    	mkdir {nmap,content,exploits,scripts}
+    }
+    
+    # Extract nmap information
+    function extractPorts(){
+    	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+    	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
+    	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
+    	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
+    	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
+    	echo $ports | tr -d '\n' | xclip -sel clip
+    	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
+    	cat extractPorts.tmp; rm extractPorts.tmp
+    }
+    
+    # Set 'man' colors
+    function man() {
+        env \
+        LESS_TERMCAP_mb=$'\e[01;31m' \
+        LESS_TERMCAP_md=$'\e[01;31m' \
+        LESS_TERMCAP_me=$'\e[0m' \
+        LESS_TERMCAP_se=$'\e[0m' \
+        LESS_TERMCAP_so=$'\e[01;44;33m' \
+        LESS_TERMCAP_ue=$'\e[0m' \
+        LESS_TERMCAP_us=$'\e[01;32m' \
+        man "$@"
+    }
+    
+    # fzf improvement
+    function fzf-lovely(){
+    
+    	if [ "$1" = "h" ]; then
+    		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
+     	                echo {} is a binary file ||
+    	                 (bat --style=numbers --color=always {} ||
+    	                  highlight -O ansi -l {} ||
+    	                  coderay {} ||
+    	                  rougify {} ||
+    	                  cat {}) 2> /dev/null | head -500'
+    
+    	else
+    	        fzf -m --preview '[[ $(file --mime {}) =~ binary ]] &&
+    	                         echo {} is a binary file ||
+    	                         (bat --style=numbers --color=always {} ||
+    	                          highlight -O ansi -l {} ||
+    	                          coderay {} ||
+    	                          rougify {} ||
+    	                          cat {}) 2> /dev/null | head -500'
+    	fi
+    }
+    
+    function rmk(){
+    	scrub -p dod $1
+    	shred -zun 10 -v $1
+    }
+    
+    # Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
+    (( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
+
+
+Guardamos **ctrl + o** [enter] y luego **ctrl + x**.
+
+**Reiniciamos y testeamos.**
