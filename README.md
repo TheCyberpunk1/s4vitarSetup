@@ -348,8 +348,8 @@ Descargar en releases la version 3.4.0, ya que da errores.
     
 **Configuramos.**
 
-cd /opt
-git clone https://github.com/polybar/polybar/
+    cd /opt
+    git clone https://github.com/polybar/polybar/
 
 **Ejecutar como usuario root.**
 
